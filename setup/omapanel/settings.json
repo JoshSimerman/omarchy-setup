@@ -1,0 +1,8 @@
+{
+  "id": "atagulalan.omapanel",
+  "showWindowPreviews": true,
+  "showLabels": false,
+  "groupRunningByWorkspace": false,
+  "iconSize": 24,
+  "pinnedApps": "[{\"label\": \"Chromium\", \"match\": \"^chromium$\", \"launch\": \"uwsm-app -- chromium\", \"icon\": \"chromium\", \"desktopId\": \"chromium\"}, {\"label\": \"Files\", \"match\": \"^org\\\\.kde\\\\.dolphin$\", \"launch\": \"uwsm-app -- dolphin\", \"icon\": \"org.kde.dolphin\", \"desktopId\": \"org.kde.dolphin\"}, {\"label\": \"Terminal\", \"match\": \"^foot$\", \"launch\": \"omarchy-launch-terminal\", \"icon\": \"foot\", \"desktopId\": \"foot\"}]"
+}

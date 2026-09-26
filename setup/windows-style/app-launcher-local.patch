@@ -1,0 +1,26 @@
+diff --git i/AppGrid.qml w/AppGrid.qml
+index bcd074d..e0be11c 100644
+--- i/AppGrid.qml
++++ w/AppGrid.qml
+@@ -4,6 +4,7 @@ import Quickshell.Io
+ import Quickshell.Wayland
+ import qs.Commons
+ import qs.Ui
++import qs.services
+ import "Usage.js" as Usage
+ import "Agents.js" as Agents
+ import "Menu.js" as Menu
+@@ -24,7 +25,12 @@ Item {
+   property var shell: null
+   property var manifest: null
+ 
+-  readonly property var appLibrary: root.shell ? root.shell.appLibrary : null
++  // Local change (omarchy-setup/setup/windows-style): Omarchy 4.0.4 gives the
++  // shared app library only to "menu" plugins, and rebuilding a plugin's shell
++  // API destroys it, which left the grid empty ("No applications found").
++  // Fall back to a private instance of the same stock AppLibrary component.
++  AppLibrary { id: localAppLibrary }
++  readonly property var appLibrary: (root.shell && root.shell.appLibrary) ? root.shell.appLibrary : localAppLibrary
+   readonly property string pluginId: (root.manifest && root.manifest.id) || "tyrsolution.app-launcher"
+   readonly property string stateDir: Quickshell.env("HOME") + "/.local/state/omarchy/app-launcher"
+ 

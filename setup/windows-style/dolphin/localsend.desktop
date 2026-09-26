@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+MimeType=all/all;
+Actions=localsend
+X-KDE-Priority=TopLevel
+
+[Desktop Action localsend]
+Name=Send via LocalSend
+Icon=localsend
+Exec=localsend --headless send %F

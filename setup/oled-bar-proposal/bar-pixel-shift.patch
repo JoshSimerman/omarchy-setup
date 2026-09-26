@@ -1,0 +1,94 @@
+--- a/Bar.qml
++++ b/Bar.qml
+@@ -10,6 +10,27 @@
+ 
+ Item {
+   id: root
++
++  // User-owned OLED mitigation; offsets only, no shader or screen blanking.
++  readonly property bool oledShiftEnabled: barConfig.oledShiftEnabled !== false
++  readonly property int oledShiftIntervalSeconds: Math.max(10, Math.min(3600,
++    Number(barConfig.oledShiftIntervalSeconds) || 180))
++  property int oledShiftPhase: 0
++  readonly property int oledEdgeOffset: oledShiftEnabled
++    ? [-2, 0, 2, 2, 0, -2][oledShiftPhase] : 0
++  readonly property int oledCenterOffset: oledShiftEnabled
++    ? [-1, 0, 1, 1, 0, -1][oledShiftPhase] : 0
++
++  Timer {
++    interval: root.oledShiftIntervalSeconds * 1000
++    repeat: true
++    running: root.oledShiftEnabled
++    onTriggered: {
++      // Avoid moving a click target or a popup's anchor during interaction.
++      if (!root.barHovered && !root.activePopout && !root.barDragSource)
++        root.oledShiftPhase = (root.oledShiftPhase + 1) % 6
++    }
++  }
+ 
+   // The omarchy-shell host injects omarchyPath from OMARCHY_PATH.
+   property string omarchyPath: Quickshell.env("OMARCHY_PATH")
+@@ -1357,13 +1378,13 @@
+ 
+         LeftModules {
+           anchors.left: parent.left
+-          anchors.leftMargin: Style.space(8)
++          anchors.leftMargin: Style.space(8) + root.oledEdgeOffset
+           anchors.verticalCenter: parent.verticalCenter
+         }
+ 
+         RightModules {
+           anchors.right: parent.right
+-          anchors.rightMargin: Style.space(8)
++          anchors.rightMargin: Style.space(8) + root.oledEdgeOffset
+           anchors.verticalCenter: parent.verticalCenter
+         }
+       }
+@@ -1379,13 +1400,13 @@
+ 
+         LeftModules {
+           anchors.top: parent.top
+-          anchors.topMargin: Style.space(8)
++          anchors.topMargin: Style.space(8) + root.oledEdgeOffset
+           anchors.horizontalCenter: parent.horizontalCenter
+         }
+ 
+         RightModules {
+           anchors.bottom: parent.bottom
+-          anchors.bottomMargin: Style.space(8)
++          anchors.bottomMargin: Style.space(8) + root.oledEdgeOffset
+           anchors.horizontalCenter: parent.horizontalCenter
+         }
+       }
+@@ -1560,6 +1581,7 @@
+           entries: centerRoot.entries
+           region: "center"
+           anchors.centerIn: parent
++          anchors.horizontalCenterOffset: root.oledCenterOffset
+         }
+ 
+         ModuleList {
+@@ -1576,6 +1598,7 @@
+           entry: centerRoot.anchorEntry
+           region: "center"
+           anchors.centerIn: parent
++          anchors.horizontalCenterOffset: root.oledCenterOffset
+         }
+ 
+         ModuleList {
+@@ -1605,6 +1628,7 @@
+           entries: centerRoot.entries
+           region: "center"
+           anchors.centerIn: parent
++          anchors.verticalCenterOffset: root.oledCenterOffset
+         }
+ 
+         ModuleList {
+@@ -1621,6 +1645,7 @@
+           entry: centerRoot.anchorEntry
+           region: "center"
+           anchors.centerIn: parent
++          anchors.verticalCenterOffset: root.oledCenterOffset
+         }
+ 
+         ModuleList {

@@ -1,0 +1,17 @@
+--- a/Service.qml
++++ b/Service.qml
+@@ -536,7 +536,13 @@
+       exclusionMode: ExclusionMode.Ignore
+       WlrLayershell.namespace: "desktop-icons"
+       WlrLayershell.layer: WlrLayer.Bottom
+-      WlrLayershell.keyboardFocus: WlrKeyboardFocus.OnDemand
++      // Local change (omarchy-setup/setup/windows-style): only take the keyboard
++      // while renaming, a menu, or the trust prompt needs it. With OnDemand
++      // always on, clicking the wallpaper moved the keyboard here while the
++      // window stayed "active", so the terminal cursor went hollow and clicking
++      // back into the window did not return the keyboard.
++      WlrLayershell.keyboardFocus: (panel.host.renamingId !== "" || panel.menuKind !== "" || panel.host.pendingTrust)
++        ? WlrKeyboardFocus.OnDemand : WlrKeyboardFocus.None
+       anchors { top: true; bottom: true; left: true; right: true }
+       // Default mask is the opaque pixels only, so a transparent desktop
+       // lets clicks fall through to omarchy-background (double-click

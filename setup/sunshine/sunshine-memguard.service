@@ -1,0 +1,12 @@
+[Unit]
+Description=Restart Sunshine if screen-capture memory piles up
+Documentation=file://%h/omarchy-setup/setup/sunshine/README.md
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/sunshine-memguard
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=graphical-session.target

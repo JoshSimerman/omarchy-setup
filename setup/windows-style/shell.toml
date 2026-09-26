@@ -1,0 +1,6 @@
+# Windows-style taskbar: 42px tall (Omarchy default 26) and dark grey #161616
+# (slightly darker than the Windows 11 taskbar; theme default is the theme background).
+# Tracked in ~/omarchy-setup/setup/windows-style/.
+[bar]
+size-horizontal = 42
+background = "#161616"

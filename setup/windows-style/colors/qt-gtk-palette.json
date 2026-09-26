@@ -1,0 +1,624 @@
+{
+  "QtGtk3Palettes": {
+    "CheckBoxPalette": {
+      "Base": [
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Light",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_button",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Dark",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_button",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceData": {
+            "GdkSource": "Background",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_Default",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ],
+      "Text": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceData": {
+            "GdkSource": "Foreground",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_Default",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ],
+      "WindowText": [
+        {
+          "ColorGroup": "Inactive",
+          "ColorScheme": "Light",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_button",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Inactive",
+          "ColorScheme": "Dark",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_button",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ]
+    },
+    "ComboBoxPalette": {
+      "ButtonText": [
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Light",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Dark",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ],
+      "Text": [
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Light",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Dark",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ],
+      "WindowText": [
+        {
+          "ColorGroup": "Inactive",
+          "ColorScheme": "Light",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Inactive",
+          "ColorScheme": "Dark",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ]
+    },
+    "GroupBoxPalette": {
+      "ButtonText": [
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Light",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Dark",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ],
+      "Text": [
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Light",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Dark",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ],
+      "WindowText": [
+        {
+          "ColorGroup": "Inactive",
+          "ColorScheme": "Light",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Inactive",
+          "ColorScheme": "Dark",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_combo_box",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ]
+    },
+    "LabelPalette": {
+      "WindowText": [
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Unknown",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_entry",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Inactive",
+          "ColorScheme": "Unknown",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_entry",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ]
+    },
+    "MenuPalette": {
+      "ButtonText": [
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Unknown",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_Default",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ]
+    },
+    "RadioButtonPalette": {
+      "Base": [
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Light",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_button",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Dark",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_button",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceData": {
+            "GdkSource": "Background",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_Default",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ],
+      "Text": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceData": {
+            "GdkSource": "Foreground",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_Default",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ],
+      "WindowText": [
+        {
+          "ColorGroup": "Inactive",
+          "ColorScheme": "Light",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_button",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Inactive",
+          "ColorScheme": "Dark",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "ACTIVE",
+            "GtkWidgetType": "gtk_button",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ]
+    },
+    "SystemPalette": {
+      "AlternateBase": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#181818",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "Base": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#101010",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "Button": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#242424",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "ButtonText": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#e6e6e6",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "Dark": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#0c0c0c",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "Highlight": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#005fb8",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "HighlightedText": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#ffffff",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "Light": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#3a3a3a",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "Mid": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#1e1e1e",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "Midlight": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#2c2c2c",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "PlaceholderText": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#8a8a8a",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "Shadow": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#000000",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "Text": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#e6e6e6",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "Window": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#141414",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ],
+      "WindowText": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#e6e6e6",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ]
+    },
+    "TabBarPalette": {
+      "WindowText": [
+        {
+          "ColorGroup": "Active",
+          "ColorScheme": "Unknown",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_entry",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        },
+        {
+          "ColorGroup": "Inactive",
+          "ColorScheme": "Unknown",
+          "SourceData": {
+            "GdkSource": "Text",
+            "GtkStateType": "NORMAL",
+            "GtkWidgetType": "gtk_entry",
+            "Height": -1,
+            "Width": -1
+          },
+          "SourceType": "Gtk"
+        }
+      ]
+    },
+    "TextLineEditPalette": {
+      "Base": [
+        {
+          "ColorGroup": "All",
+          "ColorScheme": "Unknown",
+          "SourceType": "Fixed",
+          "SourceData": {
+            "FixedBrush": {
+              "Color": "#101010",
+              "Width": -1,
+              "Height": -1
+            }
+          }
+        }
+      ]
+    }
+  }
+}

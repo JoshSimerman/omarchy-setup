@@ -1,0 +1,29 @@
+[
+  {
+    "enabled": true,
+    "intervalSeconds": 10,
+    "phase": 2,
+    "x": 2,
+    "y": 0,
+    "paused": false,
+    "icons": 2
+  },
+  {
+    "enabled": true,
+    "intervalSeconds": 10,
+    "phase": 3,
+    "x": 2,
+    "y": 2,
+    "paused": false,
+    "icons": 2
+  },
+  {
+    "enabled": true,
+    "intervalSeconds": 10,
+    "phase": 4,
+    "x": 0,
+    "y": 2,
+    "paused": false,
+    "icons": 2
+  }
+]

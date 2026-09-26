@@ -1,0 +1,10 @@
+ark
+editorconfig-core-c
+gwenview
+kate
+kauth
+kcolorpicker
+kimageannotator
+kpty
+ktexteditor
+polkit-qt6

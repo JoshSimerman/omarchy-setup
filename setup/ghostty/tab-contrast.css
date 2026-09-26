@@ -1,0 +1,20 @@
+/* Windows Terminal reference: charcoal strip, dark active tab. */
+tabbar { background-color: #323232; color: #eeeeee; }
+tabbar tab {
+  background-color: #323232;
+  color: #dddddd;
+  border: none;
+  border-right: 1px solid #484848;
+  border-radius: 9px 9px 0 0;
+  margin: 5px 1px 0;
+  box-shadow: none;
+  padding: 4px 12px;
+}
+tabbar tab:selected {
+  background-color: #0c0c0c;
+  color: #ffffff;
+  border-right-color: transparent;
+  box-shadow: none;
+}
+tabbar tab:hover:not(:selected) { background-color: #404040; }
+tabbar button { color: #eeeeee; }

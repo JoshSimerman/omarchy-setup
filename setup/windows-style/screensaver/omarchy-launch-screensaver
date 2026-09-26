@@ -1,0 +1,93 @@
+#!/bin/bash
+# User override of Omarchy's stock screensaver launcher: a slowly drifting,
+# looping video of one landscape (default: ethereal/1-cosmic), played by mpv.
+#
+# Structure adapted from jkwuc89/omarchy-wallpaper-screensaver @ 2c940bc (MIT,
+# see LICENSE.jkwuc89), reviewed before use. Installed to
+# ~/.local/lib/omarchy-overrides/bin/, which windows_style.lua puts first on the
+# compositor's PATH. Tracked in ~/omarchy-setup/setup/windows-style/screensaver/.
+#
+# Contract with Omarchy's idle service: open a window with app id
+# "org.omarchy.screensaver" on every monitor; closing it (any key, click, or
+# scroll, see screensaver-mpv-input.conf) dismisses the screensaver.
+
+SCREENSAVER_APPID="org.omarchy.screensaver"
+VIDEO="${OMARCHY_SCREENSAVER_VIDEO:-$HOME/.local/share/omarchy-setup/screensaver/cosmic-drift.mp4}"
+INPUT_CONF="$HOME/.config/omarchy/screensaver-mpv-input.conf"
+
+# Exit early if screensaver is already running
+pgrep -f "wayland-app-id=$SCREENSAVER_APPID" >/dev/null && exit 0
+
+# Allow screensaver to be turned off but also force started
+if omarchy-toggle-enabled screensaver-off && [[ $1 != "force" ]]; then
+  exit 1
+fi
+
+if [[ ! -f $VIDEO ]]; then
+  omarchy-notification-send -g ✋ "Screensaver video not found: $VIDEO"
+  exit 1
+fi
+
+focused=$(omarchy-hyprland-monitor-focused)
+# The window to give the keyboard back to afterwards (like Windows). A click
+# that dismisses the screensaver can otherwise land on the desktop and leave
+# no window with keyboard focus (hollow terminal cursor).
+previous_window=$(hyprctl activewindow -j | jq -r '.address // empty')
+
+hypr_focus_monitor() {
+  hyprctl dispatch "hl.dsp.focus({ monitor = \"$1\" })" >/dev/null 2>&1 || hyprctl dispatch focusmonitor "$1" >/dev/null
+}
+
+hypr_exec() {
+  local command
+  printf -v command '%q ' "$@"
+  hyprctl dispatch "hl.dsp.exec_cmd([[$command]])" >/dev/null 2>&1 || hyprctl dispatch exec -- bash -lc "$command" >/dev/null
+}
+
+monitor_count=$(hyprctl monitors -j | jq '. | length')
+
+for m in $(hyprctl monitors -j | jq -r '.[] | .name'); do
+  hypr_focus_monitor "$m"
+  hypr_exec mpv --wayland-app-id="$SCREENSAVER_APPID" --title=Screensaver \
+    --fs --loop-file=inf --no-audio --hwdec=auto-safe \
+    --osc=no --osd-level=0 --cursor-autohide=always --really-quiet \
+    --input-default-bindings=no --input-conf="$INPUT_CONF" \
+    "$VIDEO"
+  sleep 0.3
+done
+
+hypr_focus_monitor "$focused"
+
+# Make every screensaver window truly fullscreen so it covers the taskbar
+# and give it keyboard focus so any key dismisses it
+# (OLED). The fullscreen request from mpv/Omarchy's rule was not reliably
+# honoured with the float-everything rules; an explicit dispatch is.
+for _ in $(seq 1 40); do
+  addresses=$(hyprctl clients -j | jq -r --arg id "$SCREENSAVER_APPID" '.[] | select(.class == $id) | .address')
+  (( $(wc -w <<<"$addresses") >= monitor_count )) && break
+  sleep 0.1
+done
+for address in $addresses; do
+  hyprctl dispatch "hl.dsp.window.fullscreen({ window = \"address:$address\", action = \"set\", mode = \"fullscreen\" })" >/dev/null
+  hyprctl dispatch "hl.dsp.focus({ window = \"address:$address\" })" >/dev/null
+done
+
+# Input only reaches the focused monitor's player; once any instance closes,
+# close the rest so the whole screensaver goes away together.
+while :; do
+  running=$(pgrep -c -f "wayland-app-id=$SCREENSAVER_APPID")
+  (( running == 0 )) && break
+  if (( running < monitor_count )); then
+    pkill -f "wayland-app-id=$SCREENSAVER_APPID"
+    break
+  fi
+  sleep 1
+done
+
+# Give the keyboard back to the window that had it before the screensaver.
+if [[ -n $previous_window ]]; then
+  sleep 0.4
+  if hyprctl clients -j | jq -e --arg a "$previous_window" 'any(.[]; .address == $a)' >/dev/null; then
+    hyprctl dispatch "hl.dsp.focus({ window = \"address:$previous_window\" })" >/dev/null
+  fi
+fi

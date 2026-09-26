@@ -1,0 +1,16 @@
+plasma-desktop
+dolphin
+kio-extras
+kdegraphics-thumbnailers
+ffmpegthumbs
+kimageformats
+qt6-imageformats
+konsole
+plasma-nm
+plasma-pa
+kscreen
+bluedevil
+xdg-desktop-portal-kde
+gwenview
+ark
+breeze-gtk

@@ -1,0 +1,38 @@
+diff --git i/BarWidget.qml w/BarWidget.qml
+index 5f9f45b..9895a7c 100644
+--- i/BarWidget.qml
++++ w/BarWidget.qml
+@@ -77,10 +77,12 @@ BarWidget {
+ 
+   // Omarchy palette → strip colors. Focused strip uses the bar surface; the
+   // unfocused one steps toward the background so the active window reads.
++  // Local change (omarchy-setup/setup/windows-style): slate title bars
++  // (#253040 focused, #1c1c1c unfocused), whatever the theme palette.
+   readonly property var themeValues: ({
+-    barColor: String(Color.bar.background),
+-    inactiveBarColor: String(Qt.tint(Color.bar.background, Qt.rgba(Color.background.r, Color.background.g, Color.background.b, 0.45))),
+-    textColor: String(Color.bar.text),
++    barColor: "#253040",
++    inactiveBarColor: "#1c1c1c",
++    textColor: "#ffffff",
+     hoverColor: String(Qt.rgba(Color.bar.text.r, Color.bar.text.g, Color.bar.text.b, 0.18)),
+     closeHoverColor: String(Qt.rgba(Color.urgent.r, Color.urgent.g, Color.urgent.b, 0.85)),
+     textFont: String((bar && bar.fontFamily) || Style.font.family || "")
+diff --git i/Service.qml w/Service.qml
+index 0561b26..db1abcb 100644
+--- i/Service.qml
++++ w/Service.qml
+@@ -608,6 +608,13 @@ Item {
+ 
+   Component.onCompleted: {
+     root.readJournal()
++    // Local change (omarchy-setup/setup/windows-style): Omarchy 4 hands this
++    // plugin's bar widget a restricted shell API without a service lookup, so
++    // the widget never registers as a restore host and minimize stays
++    // disabled. Minimized windows remain restorable through the drawer
++    // (`grabbar`, IPC openDrawer), `grabbar restore-all`, and focusing them
++    // from the taskbar, so the service registers itself.
++    root.registerRestoreHost("service-fallback")
+     root.connectBackend()
+   }
+ 

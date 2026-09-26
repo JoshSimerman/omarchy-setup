@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+MimeType=image/*;video/*;
+Actions=transcode
+X-KDE-Priority=TopLevel
+
+[Desktop Action transcode]
+Name=Transcode
+Icon=video-x-generic
+Exec=dolphin-transcode %F

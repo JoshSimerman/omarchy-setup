@@ -1,0 +1,33 @@
+--- a/Service.qml
++++ b/Service.qml
+@@ -18,9 +18,9 @@
+   property var positions: ({})
+   property string desktopPath: Quickshell.env("HOME") + "/Desktop"
+   property string selectedId: ""
+-  property int iconSize: 72
+-  property int cellW: 144
+-  property int cellH: 162
++  property int iconSize: 48
++  property int cellW: 96
++  property int cellH: 104
+   property int padLeft: 24
+   property int padRight: 24
+   property int padBottom: 24
+@@ -1014,7 +1014,7 @@
+               color: "white"
+               style: Text.Outline
+               styleColor: "#cc000000"
+-              font.pixelSize: 18
++              font.pixelSize: 13
+               font.family: Style.fontFamily
+               wrapMode: Text.Wrap
+               elide: Text.ElideRight
+@@ -1041,7 +1041,7 @@
+               anchors.fill: parent
+               anchors.margins: 4
+               color: "white"
+-              font.pixelSize: 16
++              font.pixelSize: 13
+               font.family: Style.fontFamily
+               wrapMode: TextInput.Wrap
+               horizontalAlignment: TextInput.AlignHCenter

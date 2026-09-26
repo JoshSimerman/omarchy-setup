@@ -1,0 +1,29 @@
+diff --git i/Service.qml w/Service.qml
+index c24111c..f78fc8b 100644
+--- i/Service.qml
++++ w/Service.qml
+@@ -330,7 +330,7 @@ Item {
+ 
+   function revealItem(item) {
+     if (item && item.path)
+-      Quickshell.execDetached(["nautilus", "--select", item.path])
++      Quickshell.execDetached(["dolphin", "--new-window", "--select", item.path])
+     else
+       root.openDesktopFolder()
+   }
+diff --git i/bin/desktop-index w/bin/desktop-index
+index faa569a..3134fbd 100755
+--- i/bin/desktop-index
++++ w/bin/desktop-index
+@@ -382,9 +382,9 @@ def path_from_uri(value: str, *, resolve: bool = True) -> Path:
+ 
+ 
+ def open_trash() -> None:
+-    nautilus = shutil.which("nautilus") or "/usr/bin/nautilus"
++    dolphin = shutil.which("dolphin") or "/usr/bin/dolphin"
+     Gio.Subprocess.new(
+-        [nautilus, "--new-window", "trash:///"],
++        [dolphin, "--new-window", "trash:/"],
+         Gio.SubprocessFlags.NONE,
+     )
+ 

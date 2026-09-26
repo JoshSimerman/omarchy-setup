@@ -1,0 +1,73 @@
+diff --git i/BarWidget.qml w/BarWidget.qml
+index 9d36a5c..53ca1a3 100644
+--- i/BarWidget.qml
++++ w/BarWidget.qml
+@@ -1349,11 +1349,24 @@ BarWidget {
+             readonly property bool topIndicator: chip.ready && taskbar.activeIndicator === "Top"
+             readonly property real edgeMargin: Style.space(chip.ready ? taskbar.indicatorMargin : 2)
+ 
+-            visible: chip.ready && chip.isActive && taskbar.activeIndicator !== "None"
++            // Local change (omarchy-setup/setup/windows-style): like Windows, also
++
++            // mark open-but-inactive apps (e.g. minimized) with a short grey dash, so
++
++            // they look different from pinned apps that are closed.
++
++            readonly property bool runningDash: chip.ready && !chip.isActive && !chip.isClosedPinned && taskbar.activeIndicator !== "None"
++
++
++            visible: chip.ready && (chip.isActive || runningDash) && taskbar.activeIndicator !== "None"
++
+             width: {
+                 if (!chip.ready)
+                     return 0;
+ 
++                if (runningDash)
++                    return Style.space(6);
++
+                 if (dotIndicator)
+                     return Style.space(taskbar.indicatorSize);
+ 
+@@ -1366,7 +1379,7 @@ BarWidget {
+             x: Math.round((parent.width - width) / 2)
+             y: topIndicator ? edgeMargin : Math.max(0, parent.height - height - edgeMargin)
+             z: 2
+-            color: chip.ready ? taskbar.indicatorColor : Color.accent
++            color: runningDash ? "#8a8a8a" : (chip.ready ? taskbar.indicatorColor : Color.accent)
+             radius: height / 2
+ 
+             Behavior on width {
+diff --git i/taskbar/AppChipVisuals.inc w/taskbar/AppChipVisuals.inc
+index 21f316c..ce109f0 100644
+--- i/taskbar/AppChipVisuals.inc
++++ w/taskbar/AppChipVisuals.inc
+@@ -94,11 +94,19 @@
+         readonly property bool topIndicator: chip.ready && taskbar.activeIndicator === "Top"
+         readonly property real edgeMargin: Style.space(chip.ready ? taskbar.indicatorMargin : 2)
+ 
+-        visible: chip.ready && chip.isActive && taskbar.activeIndicator !== "None"
++        // Local change (omarchy-setup/setup/windows-style): like Windows, also
++        // mark open-but-inactive apps (e.g. minimized) with a short grey dash, so
++        // they look different from pinned apps that are closed.
++        readonly property bool runningDash: chip.ready && !chip.isActive && !chip.isClosedPinned && taskbar.activeIndicator !== "None"
++
++        visible: chip.ready && (chip.isActive || runningDash) && taskbar.activeIndicator !== "None"
+         width: {
+             if (!chip.ready)
+                 return 0;
+ 
++            if (runningDash)
++                return Style.space(6);
++
+             if (dotIndicator)
+                 return Style.space(taskbar.indicatorSize);
+ 
+@@ -111,7 +119,7 @@
+         x: Math.round((parent.width - width) / 2)
+         y: topIndicator ? edgeMargin : Math.max(0, parent.height - height - edgeMargin)
+         z: 2
+-        color: chip.ready ? taskbar.indicatorColor : Color.accent
++        color: runningDash ? "#8a8a8a" : (chip.ready ? taskbar.indicatorColor : Color.accent)
+         radius: height / 2
+ 
+         Behavior on width {

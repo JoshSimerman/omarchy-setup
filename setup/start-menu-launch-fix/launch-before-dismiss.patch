@@ -1,0 +1,9 @@
+--- a/AppGrid.qml
++++ b/AppGrid.qml
+@@ -627,4 +627,5 @@
+     root.persistUsage()
++    // Dismiss unloads this overlay and its local AppLibrary. Launch first.
++    if (root.appLibrary) root.appLibrary.launch(row.id, row.name)
+     root.dismiss()
+-    if (root.appLibrary) root.appLibrary.launch(row.id, row.name)
+   }

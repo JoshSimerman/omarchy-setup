@@ -1,0 +1,16 @@
+--- a/Service.qml
++++ b/Service.qml
+@@ -1148,7 +1148,12 @@
+                 panel.openItemMenu(iconRoot.modelData, iconRoot, mouse)
+                 return
+               }
+-              if (iconMouse.drag.active) return
++              // Local change (omarchy-setup/setup/windows-style): like Windows, a
++              // single click only selects (done in onPressed); double-click opens.
++              panel.closeMenu()
++            }
++            onDoubleClicked: function(mouse) {
++              if (mouse.button !== Qt.LeftButton || iconMouse.drag.active) return
+               if (Math.abs(iconRoot.x - iconRoot.pressX) > 8 || Math.abs(iconRoot.y - iconRoot.pressY) > 8)
+                 return
+               panel.closeMenu()

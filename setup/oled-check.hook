@@ -1,0 +1,41 @@
+#!/bin/bash
+# Check that both OLED pixel shifts are still in place (see setup/OLED.md).
+#
+# Installed as an Omarchy post-update hook, so it runs at the end of every
+# `omarchy update`:
+#   omarchy hook install post-update ~/omarchy-setup/setup/oled-check.hook
+# Run it by hand at any time; it prints a report and exits non-zero on a problem.
+
+repo=${OMARCHY_SETUP:-$HOME/omarchy-setup}
+plugins=$HOME/.config/omarchy/plugins
+bar=$plugins/$USER.bar
+icons=$plugins/henri.desktop-icons
+problems=()
+
+# Taskbar: the patched bar copy must be the active bar and still be built on
+# the packaged bar it was patched from.
+base=$(cut -d' ' -f1 "$repo/setup/oled-bar-proposal/base-sha256.txt" 2>/dev/null)
+packaged=$(sha256sum /usr/share/omarchy/shell/plugins/bar/Bar.qml | cut -d' ' -f1)
+[[ $(jq -r '.bar.id' ~/.config/omarchy/shell.json) == "$USER.bar" ]] ||
+  problems+=("taskbar: $USER.bar is not the active bar")
+grep -q oledShiftPhase "$bar/Bar.qml" 2>/dev/null ||
+  problems+=("taskbar: $USER.bar has no shift code")
+[[ $(jq -r '.bar.oledShiftEnabled' ~/.config/omarchy/shell.json) == true ]] ||
+  problems+=("taskbar: oledShiftEnabled is not true in shell.json")
+[[ $packaged == "$base" ]] ||
+  problems+=("taskbar: Omarchy's bar changed since the patch (rebase bar-pixel-shift.patch onto the new Bar.qml)")
+
+# Desktop icons: the OLED patch must still be applied to the plugin.
+grep -q oledPhase "$icons/Service.qml" 2>/dev/null ||
+  problems+=("desktop icons: OLED patch missing (plugin updated? re-apply desktop-icons-oled.patch)")
+
+if ((${#problems[@]} == 0)); then
+  echo "OLED shifting OK: taskbar ($USER.bar) and desktop icons"
+  exit 0
+fi
+
+printf 'OLED shifting problem: %s\n' "${problems[@]}" >&2
+notify-send -u critical -a "OLED check" "OLED pixel shifting needs attention" \
+  "$(printf '%s\n' "${problems[@]}")
+See ~/omarchy-setup/setup/OLED.md" 2>/dev/null
+exit 1

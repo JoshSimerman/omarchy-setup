@@ -1,0 +1,17 @@
+#!/bin/bash
+# Dolphin "Transcode" action: same behaviour as Omarchy's Nautilus extension
+# (~/.local/share/nautilus-python/extensions/transcode.py).
+# Tracked in ~/omarchy-setup/setup/windows-style/dolphin/.
+
+(( $# )) || exit 0
+
+if (( $# == 1 )); then
+  cmd="omarchy-transcode $(printf '%q' "$1")"
+else
+  cmd=""
+  for path in "$@"; do
+    cmd+="echo $(printf '%q' "Transcoding $path") && omarchy-transcode $(printf '%q' "$path") || true; "
+  done
+fi
+
+exec omarchy-launch-floating-terminal-with-presentation "$cmd"

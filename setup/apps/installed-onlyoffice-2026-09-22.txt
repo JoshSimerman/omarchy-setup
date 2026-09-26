@@ -1,0 +1,6 @@
+a52dec 0.8.0-3
+gst-plugins-ugly 1.28.6-3
+libmpeg2 0.5.1-11
+onlyoffice-bin 9.4.0-1
+ttf-carlito 20230509-2
+ttf-dejavu 2.37+18+g9b5d1b2f-8

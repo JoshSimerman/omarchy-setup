@@ -1,0 +1,91 @@
+--- a/Service.qml
++++ b/Service.qml
+@@ -6,6 +6,10 @@
+ 
+ Item {
+   id: root
++
++  // Local OLED adaptation: visual offsets never change saved positions.
++  property bool oledShiftEnabled: true
++  property int oledShiftIntervalSeconds: 180
+ 
+   property var shell: null
+   property var manifest: null
+@@ -554,6 +558,39 @@
+       property bool _initialized: false
+       property var _knownIds: ({})
+ 
++      property int oledPhase: 0
++      readonly property int oledX: host.oledShiftEnabled ? [0, 2, 2, 2, 0, -2, -2, -2][oledPhase] : 0
++      readonly property int oledY: host.oledShiftEnabled ? [-2, -2, 0, 2, 2, 2, 0, -2][oledPhase] : 0
++      readonly property bool oledPaused: {
++        if (panel.menuKind !== "" || panel.dropping || host.renamingId !== "" || host.pendingTrust)
++          return true
++        for (var i = 0; i < iconRepeater.count; i++) {
++          var icon = iconRepeater.itemAt(i)
++          if (icon && icon.oledInteracting) return true
++        }
++        return false
++      }
++
++      Timer {
++        interval: Math.max(10, panel.host.oledShiftIntervalSeconds) * 1000
++        running: panel.host.oledShiftEnabled
++        repeat: true
++        onTriggered: if (!panel.oledPaused) panel.oledPhase = (panel.oledPhase + 1) % 8
++      }
++
++      IpcHandler {
++        target: "josh.desktop-oled." + panel.screenName
++        function status(): string {
++          var icon = iconRepeater.itemAt(0)
++          var visual = icon ? icon.mapToItem(panel.contentItem, 0, 0) : null
++          return JSON.stringify({firstIcon: icon ? {baseX: icon.x, baseY: icon.y,
++              visualX: visual.x, visualY: visual.y} : null, enabled: panel.host.oledShiftEnabled,
++            intervalSeconds: panel.host.oledShiftIntervalSeconds, phase: panel.oledPhase,
++            x: panel.oledX, y: panel.oledY, paused: panel.oledPaused,
++            icons: iconRepeater.count})
++        }
++      }
++
+       function layoutPos(index) {
+         var availH = Math.max(host.cellH, panel.height - panel.padTop - host.padBottom)
+         var rows = Math.max(1, Math.floor(availH / host.cellH))
+@@ -588,7 +625,8 @@
+           var item = host.items[i]
+           if (exceptId && item.id === exceptId)
+             continue
+-          var pos = panel.posFor(item, i)
++          var base = panel.posFor(item, i)
++          var pos = {x: base.x + panel.oledX, y: base.y + panel.oledY}
+           if (x >= pos.x && x < pos.x + host.cellW && y >= pos.y && y < pos.y + host.cellH)
+             return item
+         }
+@@ -887,6 +925,7 @@
+       }
+ 
+       Repeater {
++        id: iconRepeater
+         model: panel.host.items
+ 
+         Item {
+@@ -897,6 +936,8 @@
+           width: panel.host.cellW
+           height: panel.host.cellH
+           z: iconMouse.drag.active ? 6 : 2
++          readonly property bool oledInteracting: iconMouse.containsMouse || iconMouse.pressed || iconMouse.drag.active
++          transform: Translate { x: panel.oledX; y: panel.oledY }
+           property real pressX: 0
+           property real pressY: 0
+ 
+@@ -1082,8 +1123,8 @@
+             onReleased: function(mouse) {
+               if (!iconMouse.drag.active) return
+               var target = panel.itemAt(
+-                iconRoot.x + iconRoot.width / 2,
+-                iconRoot.y + iconRoot.height / 2,
++                iconRoot.x + panel.oledX + iconRoot.width / 2,
++                iconRoot.y + panel.oledY + iconRoot.height / 2,
+                 iconRoot.modelData.id
+               )
+               if (target && panel.host.isTrash(target) && !panel.host.isTrash(iconRoot.modelData)) {

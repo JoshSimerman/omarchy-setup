@@ -1,0 +1,11 @@
+--- a/.bashrc
++++ b/.bashrc
+@@ -21,7 +21,7 @@
+ # instead when invoked from the home directory. Also covers the `cx` alias.
+ claude() {
+   if [[ "$PWD" == "$HOME" ]]; then
+-    (cd "$HOME/code" && exec command claude "$@")
++    (builtin cd "$HOME/code" && command claude "$@")
+   else
+     command claude "$@"
+   fi

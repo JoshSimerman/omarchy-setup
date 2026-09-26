@@ -1,0 +1,11 @@
+# Omarchy shell plugins installed for the Windows-style desktop, pinned to the
+# commits whose source was read before installation on 2026-09-22.
+# id  repository  reviewed-commit
+io.github.librael-the-culprit.simple-start-menu https://github.com/Librael-The-Culprit/omarchy-simple-start-menu.git ddc0bd555d4fdd115efc417631cea1821a0f84e4
+io.github.pablo-merino.altswitch https://github.com/Pablo-Merino/omarchy-altswitch.git 8f54d684c89d66ecf51e6e5a9c5c574758de79be
+se.mindfulstack.omascape https://github.com/Mindful-Stack/omascape.git 2ed103607b586b0f41c956f5c21355a324cb2a6a
+henri.desktop-icons https://github.com/Henri1130/omarchy-desktop-icons.git 474cbd3bbd65c94ac6d909f33e87a1d1328e05de
+tech.greyforge.grabbar https://github.com/GreyforgeLabs/omarchy-grabbar.git aca49414c11881d2f84128a8d63141ceea5a0f60
+jankeesvw.notification-center https://github.com/jankeesvw/omarchy-notification-center.git e4c4568daaf93751097f86a79f98b35c4c00da44
+aryal.control-center https://github.com/404Prabhat/omarchy-control-center.git bddd51b2652bc1d4ce703bcca99597834dc0b0c7
+tyrsolution.app-launcher https://github.com/Tyrsolution/omarchy-app-launcher.git 26d080082da007d3b9357e93c42febe27014aace

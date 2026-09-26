@@ -1,0 +1,83 @@
+--- a/BarWidget.qml
++++ b/BarWidget.qml
+@@ -801,10 +801,15 @@
+             previewHideTimer.stop();
+             if (chip.bar)
+                 chip.bar.hideTooltip(chip);
+-            if (toplevel)
++            if (toplevel) {
+                 requestPreview(chip, toplevel);
+-            else if (!previewToplevel && !pendingPreviewToplevel && chip.bar)
+-                chip.bar.showTooltip(chip, chip.tooltipText);
++            } else {
++                // Local change (omarchy-setup/setup/windows-style): like Windows, a closed
++                // pinned app replaces any open preview with its name tooltip.
++                cancelPreview(null);
++                if (chip.bar)
++                    chip.bar.showTooltip(chip, chip.tooltipText);
++            }
+             return ;
+         }
+         if (chip.bar)
+@@ -1240,6 +1245,10 @@
+         hasVisualContent: true
+         keepSpace: true
+         interactive: false
++        // Local change (omarchy-setup/setup/windows-style): Omarchy's bar only shows a
++        // tooltip while the target reports tooltipHovered, which WidgetButton ties to its
++        // own (disabled) mouse area. Report the chip's hover instead so tooltips appear.
++        readonly property bool tooltipHovered: visible && !concealed && pointerHovered
+         useActiveColor: false
+         dimmed: false
+         fixedWidth: Math.max(1, calculatedWidth + hitHorizontalPaddingExtent)
+@@ -1250,7 +1259,8 @@
+             var verticalPad = Style.space((ready ? taskbar.itemVerticalPadding : 12) * 2);
+             return Math.min(Math.max(1, barHeight - padTop - padBottom), contentHeight + verticalPad);
+         }
+-        tooltipText: (ready ? taskbar.asPlainUiText(resolvedLabel) : resolvedLabel) + (pinned && appWindow === null ? "\nClick to open" : "\nClick to focus")
++        // Local change: just the app name, like Windows.
++        tooltipText: ready ? taskbar.asPlainUiText(resolvedLabel) : resolvedLabel
+ 
+ 
+         TextMetrics {
+--- a/src/preview.inc
++++ b/src/preview.inc
+@@ -60,10 +60,15 @@
+             previewHideTimer.stop();
+             if (chip.bar)
+                 chip.bar.hideTooltip(chip);
+-            if (toplevel)
++            if (toplevel) {
+                 requestPreview(chip, toplevel);
+-            else if (!previewToplevel && !pendingPreviewToplevel && chip.bar)
+-                chip.bar.showTooltip(chip, chip.tooltipText);
++            } else {
++                // Local change (omarchy-setup/setup/windows-style): like Windows, a closed
++                // pinned app replaces any open preview with its name tooltip.
++                cancelPreview(null);
++                if (chip.bar)
++                    chip.bar.showTooltip(chip, chip.tooltipText);
++            }
+             return ;
+         }
+         if (chip.bar)
+--- a/taskbar/AppChipProperties.inc
++++ b/taskbar/AppChipProperties.inc
+@@ -117,6 +117,10 @@
+     hasVisualContent: true
+     keepSpace: true
+     interactive: false
++    // Local change (omarchy-setup/setup/windows-style): Omarchy's bar only shows a
++    // tooltip while the target reports tooltipHovered, which WidgetButton ties to its
++    // own (disabled) mouse area. Report the chip's hover instead so tooltips appear.
++    readonly property bool tooltipHovered: visible && !concealed && pointerHovered
+     useActiveColor: false
+     dimmed: false
+     fixedWidth: Math.max(1, calculatedWidth + hitHorizontalPaddingExtent)
+@@ -127,4 +131,5 @@
+         var verticalPad = Style.space((ready ? taskbar.itemVerticalPadding : 12) * 2);
+         return Math.min(Math.max(1, barHeight - padTop - padBottom), contentHeight + verticalPad);
+     }
+-    tooltipText: (ready ? taskbar.asPlainUiText(resolvedLabel) : resolvedLabel) + (pinned && appWindow === null ? "\nClick to open" : "\nClick to focus")
++    // Local change: just the app name, like Windows.
++    tooltipText: ready ? taskbar.asPlainUiText(resolvedLabel) : resolvedLabel

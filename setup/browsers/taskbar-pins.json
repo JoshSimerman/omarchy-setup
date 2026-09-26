@@ -1,0 +1,30 @@
+[
+  {
+    "label": "Firefox",
+    "match": "^[Ff]irefox$",
+    "launch": "uwsm-app -- firefox",
+    "icon": "firefox",
+    "desktopId": "firefox"
+  },
+  {
+    "label": "Brave",
+    "match": "^[Bb]rave(-browser)?$",
+    "launch": "uwsm-app -- brave",
+    "icon": "brave-desktop",
+    "desktopId": "brave-browser"
+  },
+  {
+    "label": "Helium",
+    "match": "^[Hh]elium(-browser)?$",
+    "launch": "uwsm-app -- helium-browser",
+    "icon": "helium-browser",
+    "desktopId": "helium"
+  },
+  {
+    "label": "Chrome Beta",
+    "match": "^[Gg]oogle-chrome-beta$",
+    "launch": "uwsm-app -- google-chrome-beta",
+    "icon": "google-chrome-beta",
+    "desktopId": "google-chrome-beta"
+  }
+]
