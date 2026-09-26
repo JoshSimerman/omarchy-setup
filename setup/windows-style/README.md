@@ -76,7 +76,11 @@ the topic docs and [LOG.md](LOG.md).
 ```
 
 The script checks plugins out at the reviewed commits rather than the latest
-upstream. It has not yet been run on a second machine.
+upstream, backs up each home-directory file (including `~/.bash_profile`)
+before changing it, and is safe to run again: each step checks whether it is
+already done. All its patches were checked to apply cleanly to the pinned
+upstream commits and to be skipped on a second run. It has not yet been run
+end to end on a second Omarchy machine.
 
 ## Undo everything
 

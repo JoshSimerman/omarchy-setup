@@ -39,8 +39,8 @@ sits on Omarchy's notification service instead of replacing it (unlike
   keyboard panel left open). Omarchy's recent history was imported on first
   run.
 - Quick Settings (Windows' Win+A: Wi-Fi, Bluetooth, volume, brightness in one
-  pop-up) is not included; the bar's separate network, Bluetooth, and audio
-  panels cover it for now.
+  pop-up) is not part of this plugin; it was added separately the same day
+  (see [Quick Settings](#quick-settings-wina) below).
 
 ## Quick Settings (Win+A)
 
@@ -141,7 +141,7 @@ taskbar-style focus brought it back to workspace 1.
 ## Grabbar operations
 
 The title bars come from a compiled Hyprland plugin. To load it by hand (for
-example after `grabbar autoload retry`), then apply the blue colours:
+example after `grabbar autoload retry`), then apply the title-bar colours:
 
 ```bash
 hyprctl plugin load ~/.config/omarchy/plugins/tech.greyforge.grabbar/native/grabbar/grabbar.so && hyprctl reload
@@ -185,8 +185,9 @@ Grabbar update.
 ## Apps
 
 Kate (Notepad), Gwenview (Photos), and Ark ("Extract here" in Dolphin's
-right-click menu), 26.08.0-1 from `extra`. Kate and Gwenview are the defaults
-for text and image files. Everything installed, including dependencies, is in
+right-click menu), 26.08.0-1 from `extra`. Kate and Gwenview were made the defaults
+for text and image files; images moved to Loupe later that day (see
+[apps](../apps/README.md#2026-09-22-loupe-as-the-image-viewer-claude)). Everything installed, including dependencies, is in
 [`installed-2026-09-22.txt`](installed-2026-09-22.txt).
 
 ## Undo

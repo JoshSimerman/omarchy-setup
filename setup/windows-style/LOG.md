@@ -60,7 +60,7 @@ linked from [README.md](README.md).
 - **Desktop icon labels in Selawik** (`sans-serif`), rename box 13px; verified by screenshot.
 - Verified after reopening Dolphin: single window, no tabs, 16px Details icons; desktop icons 48px on the 104px grid.
 - **Size follow-up**: desktop icons re-gridded (stale saved positions, shell reload), Dolphin details view 16px icons, Dolphin no longer restores old tabs.
-- **Quick Settings** (aryal.control-center, reviewed) on Win+A and a taskbar button; hover corners disabled, tiles repointed to Dolphin/Omarchy menu. [Details](PLUGINS.md#quick-settings-win-a).
+- **Quick Settings** (aryal.control-center, reviewed) on Win+A and a taskbar button; hover corners disabled, tiles repointed to Dolphin/Omarchy menu. [Details](PLUGINS.md#quick-settings-wina).
 - **Dolphin icons 48px** (Windows medium icons).
 - **KDE Open/Save dialogs skipped**: would reinstall 57 Plasma packages (KWin, plasma-workspace). [Details](FILE-MANAGER.md#nautilus-removed).
 - **Sizes made consistent**: interface font 11→10, taskbar 26→34px, desktop
@@ -86,7 +86,7 @@ linked from [README.md](README.md).
   already open need a restart. Awaiting Josh's decision to keep or revert.
 - **Selawik interface font.** Installed AUR `ttf-selawik` (reviewed); GTK/Qt
   font and fontconfig's sans-serif and Segoe UI now resolve to Selawik.
-  [Details](APPEARANCE.md#interface-font-selawik).
+  [Details](APPEARANCE.md#interface-font-selawik--removed).
 - **Win+H dictation** (voxtype toggle) and **no transparency on any window**.
   [Details](WINDOWS-AND-SHORTCUTS.md).
 - **Keybindings menu hang fixed.** The Grabbar colour check looped forever
@@ -99,7 +99,7 @@ linked from [README.md](README.md).
 - **Fluent GTK theme removed**: not noticeable. [Details](APPEARANCE.md#gtk-theme-fluent--removed).
 - **Fluent GTK theme.** Installed AUR `fluent-gtk-theme` (reviewed) and
   `sassc`; Fluent-round-Dark kept in place by a theme-set hook, including
-  libadwaita apps. [Details](APPEARANCE.md#gtk-theme-fluent).
+  libadwaita apps. [Details](APPEARANCE.md#gtk-theme-fluent--removed).
 - **Docs split.** At Josh's request the single README became an index plus
   topic docs (window behaviour and shortcuts, plugins and apps, appearance)
   and this log.

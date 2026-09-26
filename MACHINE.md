@@ -27,7 +27,7 @@ repeated on other machines.
 3. Set repository-local Git identity to `josh <JoshSimerman@users.noreply.github.com>` and committed.
 4. Renamed the directory to `~/omarchy-setup` and updated its documentation.
 5. Authenticated GitHub CLI as `JoshSimerman`, using HTTPS for Git operations.
-6. Created the private repository and pushed using:
+6. Created the GitHub repository and pushed using:
 
    ```bash
    gh repo create JoshSimerman/omarchy-setup --public \
@@ -40,7 +40,9 @@ repeated on other machines.
    to configure Git's credential helper to use the authenticated GitHub CLI.
 
 **Result:** Remote is `https://github.com/JoshSimerman/omarchy-setup.git`; local `main`
-tracks `origin/main`. GitHub confirmed the repository is private. Login
+tracks `origin/main`. At the time, GitHub reported the repository as
+private, although the command above is recorded with `--public`; the
+repository is now public, as a squashed snapshot (see the README). Login
 troubleshooting and user assistance are recorded in [CODEX.md](CODEX.md).
 
 ## 2026-09-22 — Claude Code usability fixes (clipboard, mise, shell)

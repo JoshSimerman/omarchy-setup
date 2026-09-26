@@ -32,7 +32,7 @@ here): `mise-bin`, `fprintd`, `libfprint-git`, `usbutils`, `voxtype-bin`.
 | App | Package | Date | Why |
 | --- | --- | --- | --- |
 | Kdenlive (video editor) | `kdenlive` | 2026-09-22 | not used |
-| Moonlight (game streaming) | `moonlight-qt` | 2026-09-22 | no gaming PC |
+| Moonlight (game streaming client) | `moonlight-qt` | 2026-09-22 | not needed on this laptop (it is the Sunshine host; Moonlight runs on the Windows PC) |
 | Pinta (image editor) | `pinta` | 2026-09-22 | not used |
 | Xournal++ (handwritten notes) | `xournalpp` | 2026-09-22 | not used |
 | Omawrite (writing app) | `omawrite` | 2026-09-22 | Obsidian covers it |
@@ -43,7 +43,7 @@ here): `mise-bin`, `fprintd`, `libfprint-git`, `usbutils`, `voxtype-bin`.
 | Plasma desktop | 88 packages | 2026-09-22 | [plasma](../plasma/README.md) |
 | Nautilus | `nautilus` + 18 | 2026-09-22 | replaced by Dolphin; [windows-style](../windows-style/README.md) |
 
-Kept on purpose: all five browsers (Josh uses each for a different purpose),
+Kept on purpose: all five browsers installed at the time, since Josh uses each for a different purpose (four more were added on 2026-09-24),
 Docker, Obsidian, OBS Studio, Omacut, cliamp, and the remaining web apps.
 
 ## 2026-09-22 cleanup (Claude)

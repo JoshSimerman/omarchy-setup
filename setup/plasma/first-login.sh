@@ -9,7 +9,7 @@ setup_data="${XDG_DATA_HOME:-$HOME/.local/share}/omarchy-setup/plasma"
 mkdir -p "$setup_state"
 [[ -f "$setup_state/plasma-panel-ready" ]] && exit 0
 exec >>"$setup_state/plasma-first-login.log" 2>&1
-for attempt in {1..30}; do
+for _ in {1..30}; do
   if result=$(qdbus6 org.kde.plasmashell /PlasmaShell \
       org.kde.PlasmaShell.evaluateScript "$(cat "$setup_data/panel.js")" 2>&1) &&
       [[ "$result" == *omarchy-setup-panel-ready* ]]; then

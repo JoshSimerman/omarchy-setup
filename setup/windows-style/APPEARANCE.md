@@ -6,7 +6,7 @@ theme, title bars, and icons were "better now" on 2026-09-22.
 
 ## Scaling
 
-200% → **160%** with `omarchy hyprland monitor scaling 1.6`. The 13.3"
+200% → **160%** with `omarchy hyprland monitor scaling 1.6`. The
 2880×1800 Samsung OLED (eDP-1) now behaves like 1800×1125. Omarchy persisted
 it in `~/.config/hypr/monitors.lua` (`omarchy_monitor_scale = 1.6`; it keeps
 `GDK_SCALE = 2`, as GTK only accepts whole numbers). Backup:
@@ -211,7 +211,7 @@ the Omarchy bar was 26px (Windows 11's taskbar is 48px).
 | Item | Before | After | Where |
 | --- | --- | --- | --- |
 | Interface font (GTK/Qt: Chrome UI, Dolphin, Kate) | Selawik 11 | Selawik 10, then **JetBrainsMono Nerd Font 9** | `gsettings … font-name` |
-| Taskbar height | 26px | **34px** | [`shell.toml`](shell.toml) → `~/.config/omarchy/shell.toml` `[bar] size-horizontal` |
+| Taskbar height | 26px | **34px** (later 48px, then 42px; see [TASKBAR.md](TASKBAR.md)) | [`shell.toml`](shell.toml) → `~/.config/omarchy/shell.toml` `[bar] size-horizontal` |
 | Desktop icons | 72px, 144×162 cells, 18px JetBrains Mono labels | **48px, 96×104 cells, 13px labels** (shell font) | [`desktop-icons-sizes.patch`](desktop-icons-sizes.patch) on `henri.desktop-icons/Service.qml` |
 | Dolphin icons view | 96px | **48px** (Windows "medium icons"; 64px first) | `~/.config/dolphinrc` `[IconsMode] IconSize/PreviewSize` |
 | Chrome page content | 100% | **90%** | `~/.config/chromium/Default/Preferences` `partition.default_zoom_level.x = log(0.9)/log(1.2)` (≈ −0.578), set with Chrome closed; relaunched with `--restore-last-session` (tabs came back); Chrome kept the value after rewriting its prefs. Backup `Preferences.bak.<epoch>` |
