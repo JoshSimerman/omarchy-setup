@@ -11,15 +11,15 @@ of every decision.**
 [![Agents: Claude Code + Codex](https://img.shields.io/badge/agents-Claude_Code_%2B_Codex-D97757)](#how-the-agent-workflow-works)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](LICENSE)
 
-Over four days in September 2026, an OLED laptop running
-[Omarchy](https://omarchy.org/) (Arch Linux + Hyprland) was turned into a
-daily workstation by two AI coding agents working under one written
-agreement. Josh described what he wanted; the agents investigated, proposed,
-applied changes once he approved them, verified them, and recorded the
-commands, configs, upstream patches, failed attempts, and undo steps. The
-result is a Windows-style desktop running inside Omarchy's own shell, plus
-OLED burn-in mitigation, live dictation, a remote-desktop host, and some
-thirty apps and tools. Every change can be traced from request to
+Over four days in September 2026, a ThinkPad X9 15 Aura (15-inch 2880×1800
+OLED) running [Omarchy](https://omarchy.org/) (Arch Linux + Hyprland) was
+turned into a daily workstation by two AI coding agents working under one
+written agreement. Josh described what he wanted; the agents investigated,
+proposed, applied changes once he approved them, verified them, and recorded
+the commands, configs, upstream patches, failed attempts, and undo steps.
+The result is a Windows-style desktop running inside Omarchy's own shell,
+plus OLED burn-in mitigation, live dictation, a remote-desktop host, and
+some thirty apps and tools. Every change can be traced from request to
 change-log entry.
 
 The longer story (timeline, problem write-ups, extra diagrams, and the full

@@ -1,7 +1,7 @@
 # OLED burn-in protection
 
-The laptop's screen is a Samsung ATNA53JB01-0 OLED (eDP-1, 2880×1800, 160%
-scaling). Josh wants the taskbar and desktop icons protected from burn-in.
+The laptop is a ThinkPad X9 15 Aura. Its 15-inch screen is a Samsung
+ATNA53JB01-0 OLED (eDP-1, 2880×1800, 160% scaling). Josh wants the taskbar and desktop icons protected from burn-in.
 This page is the index and running log for everything OLED-related. Details
 live in the linked docs.
 

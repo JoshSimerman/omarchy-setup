@@ -8,6 +8,8 @@ explain a working solution. Distinguish observed state from changes made here.
 ## Known starting state — 2026-09-22
 
 - This machine is being tracked as an Omarchy setup.
+- Hardware: ThinkPad X9 15 Aura with a 15-inch 2880×1800 OLED (Samsung
+  ATNA53JB01-0 panel).
 - Single desktop user; use `~` for the home directory in repeatable instructions.
 - Git was already installed; observed version: `2.55.0`.
 - GitHub CLI (`gh`) was already installed. Its installation and version were not
