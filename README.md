@@ -11,6 +11,32 @@ of every decision.**
 [![Agents: Claude Code + Codex](https://img.shields.io/badge/agents-Claude_Code_%2B_Codex-D97757)](#how-the-agent-workflow-works)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/License-AGPL--3.0--or--later-blue.svg)](LICENSE)
 
+## The goal
+
+Omarchy is an opinionated Arch Linux setup, and out of the box it is a
+tiling window manager: windows snap into a grid, and you drive everything
+from the keyboard. The goal here was to make it look and feel like a Windows
+PC instead:
+
+- a **taskbar at the bottom**, with a **Start menu**, pinned apps and
+  window previews;
+- **floating windows** you can move, resize, snap, maximize and minimize,
+  with Windows keyboard shortcuts, Alt+Tab and click-to-focus;
+- **Dolphin as the file explorer**, in a details view with a details pane
+  that borrows from both Windows File Explorer and the macOS Finder.
+
+The result combines the parts of Windows and macOS that make those systems
+easy to use, running on top of Linux, without being forced into the tiling
+paradigm that Omarchy uses by default.
+
+The real benefit is what Linux adds underneath. Unlike Windows and macOS,
+there are no forced installs or updates, no bloatware and no adware. Because
+everything is open source, anything you would want to change can be
+changed, down to the taskbar and the file manager, and the system becomes
+yours.
+
+## How it was built
+
 Over four days in September 2026, a ThinkPad X9 15 Aura (15-inch 2880×1800
 OLED) running [Omarchy](https://omarchy.org/) (Arch Linux + Hyprland) was
 turned into a daily workstation by two AI coding agents working under one
